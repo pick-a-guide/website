@@ -20,14 +20,14 @@
 
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
+            <ul class="sidebar-nav" style="height:100%">
+                <li class="sidebar-brand" style="margin-bottom:5px;text-indent:0px">
                     <a href="#">
-                        Start Bootstrap
+                       	<img src="assets/logo.png" style="width:100%"></img>
                     </a>
                 </li>
                 <li>
@@ -51,6 +51,9 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
+		<li style="position:absolute;width:100%;bottom:0">
+		    <a href="#">Sair</a>
+		</li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -61,7 +64,6 @@
                 <h1>Simple Sidebar</h1>
                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -72,15 +74,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
 </body>
 
 </html>
