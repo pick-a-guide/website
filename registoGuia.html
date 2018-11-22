@@ -1,0 +1,158 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Include the above in your HEAD tag -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet"> 
+
+    <!--Novos AQUIIIIIIII -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+
+    <!-- Website CSS style -->
+    <link rel="stylesheet" type="text/css" href="css/registo_guia.css">
+
+
+    <!-- Website Font style
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    //-->
+
+    <!-- Google Fonts 
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    //-->
+    <title>Registo Guia</title>
+
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Pick-A-Guide</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-3">
+                        <a class="nav-link text-white" href="#">Guiar</a>
+                </li>
+                <li class="nav-item p-3">
+                        <a class="nav-link text-white" href="#">Ser guiado</a>
+                </li>
+            </ul>
+            <div class="d-flex justify-content-end p-3">
+                <a class="nav-link text-white" href="#">Iniciar Sessão</a>
+                <a class="nav-link text-white" href="#">Registar-se</a>
+            </div>
+        </div>
+        </nav>
+    </div>
+
+    <div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="text-left">
+                        <h2 class="title">Torne-se parceiro do Pick-A-Guide</h2>
+                        <p><h2 class="title">Aumente os seus rendimentos</h2></p>   
+	               		<hr />
+	               	</div>
+                </div> 
+                <div class="relative">
+                    <img src="assets/registo_guia.png" class="image_center">
+                </div>
+                <!-- Aqui está o form -->
+				<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="#">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Your Name"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Your Email"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="mobile" class="cols-sm-2 control-label required">Mobile</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="mobile" id="mobile"  placeholder="Your Mobile"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="nationality" class="cols-sm-2 control-label">Nationality</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-globe fa-lg" aria-hidden="true"></i></span>
+									<select class="form-control" name="nationality" id="nationality"  placeholder="Please select your Nationality">
+                                    <option>-select-</option>
+                                    <option>India</option>
+                                    <option>Singapore</option>
+                                    <option>Malaysia</option>
+                                    <option>USA</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="country" class="cols-sm-2 control-label">Country of Residence</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span>
+									<select class="form-control" name="country" id="country"  placeholder="Please select your Country">
+                                    <option>-select-</option>
+                                    <option>India</option>
+                                    <option>Singapore</option>
+                                    <option>Malaysia</option>
+                                    <option>USA</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+        </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+
+</html>
