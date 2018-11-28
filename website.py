@@ -54,27 +54,7 @@ class WebSite(object):
     @cherrypy.expose
     def index(self):
 
-        return self.render('index.html')
-
-
-    @cherrypy.expose
-    def about(self):
-        tparams = {
-            'title': 'About',
-            'message': 'Your application description page.',
-            'user': self.get_user(),
-        }
-        return self.render('about.html', tparams)
-
-
-    @cherrypy.expose
-    def contact(self):
-        tparams = {
-            'title': 'Contact',
-            'message': 'Your contact page.',
-            'user': self.get_user(),
-        }
-        return self.render('contact.html', tparams)
+        return self.render('pages/index.html')
 
 
     @cherrypy.expose
@@ -86,7 +66,7 @@ class WebSite(object):
                 'user': self.get_user(),
                 'year': datetime.now().year,
             }
-            return self.render('iniciarSessaoGuia.html', tparams)
+            return self.render('pages/iniciarSessaoGuia.html', tparams)
         else:
 
             self.do_authenticationJSON(username, password, 'guia')
@@ -96,9 +76,9 @@ class WebSite(object):
                     'errors': True,
                     'user': self.get_user(),
                 }
-                return self.render('iniciarSessaoGuia.html', tparams)
+                return self.render('pages/iniciarSessaoGuia.html', tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashguia.html")
+                raise cherrypy.HTTPRedirect("pages/dashguia.html")
 
     @cherrypy.expose
     def loginGuiado(self, username=None, password=None):
@@ -109,7 +89,7 @@ class WebSite(object):
                 'user': self.get_user(),
                 'year': datetime.now().year,
             }
-            return self.render('iniciarSessaoGuiado.html', tparams)
+            return self.render('pages/iniciarSessaoGuiado.html', tparams)
         else:
 
             self.do_authenticationJSON(username, password, 'guia')
@@ -120,24 +100,19 @@ class WebSite(object):
                     'user': self.get_user(),
                     'year': datetime.now().year,
                 }
-                return self.render('login.html', tparams)
+                return self.render('pages/login.html', tparams)
             else:
-                raise cherrypy.HTTPRedirect("/")
+                raise cherrypy.HTTPRedirect("pages/index.html")
 
     @cherrypy.expose
     def logout(self):
         self.set_user()
-        raise cherrypy.HTTPRedirect("/")
+        raise cherrypy.HTTPRedirect("pages/index.html")
 
 
     @cherrypy.expose
     def signup(self):
         pass
-
-
-    @cherrypy.expose
-    def shut(self):
-        cherrypy.engine.exit()
 
 
 if __name__ == '__main__':
@@ -146,9 +121,17 @@ if __name__ == '__main__':
             'tools.sessions.on': True,
             'tools.staticdir.root': os.path.abspath(os.getcwd())
         },
-        '/static': {
+        '/css': {
             'tools.staticdir.on': True,
-            'tools.staticdir.dir': './static'
+            'tools.staticdir.dir': './css'
+        },
+        '/assets': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './assets'
+        },
+        '/vendor': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './vendor'
         }
     }
-    cherrypy.quickstart(WebApp(), '/', conf)
+    cherrypy.quickstart(WebApp(), 'pages/index.html', conf)
