@@ -23,6 +23,14 @@ h2.title {
     text-align: center
 }
 
+h2.title-2{
+    margin: auto;
+    font-size: 40px;
+    font-family: 'Passion One', cursive; 
+    font-weight: 400; 
+    text-align: center;
+}
+
 hr{
    width: 10%;
    color: #fff;
@@ -38,7 +46,7 @@ label{
 
 input,
 input::-webkit-input-placeholder {
-   font-size: 9px;
+   font-size: 12px;
    padding-top: 3px;
 }
 
@@ -62,7 +70,13 @@ input::-webkit-input-placeholder {
     height: 700px;
     padding: 80px 80px;
     overflow:hidden;
+}
 
+.main-center-2{
+    margin: auto;
+    width: 50%;
+    padding: 80px 80px;
+    overflow:hidden;    
 }
 
 .login-button{
@@ -83,6 +97,12 @@ input::-webkit-input-placeholder {
     text-align: center;
 }
 
+.text-center{
+    margin: auto;
+    width: 1150px;
+    text-align: center;
+}
+
 .image_center{
     position: absolute;
     height: 500px;
@@ -96,3 +116,18 @@ div.relative {
     left: 200px;
     top: 300px;
 }
+
+
+.button {
+    background-color: rgb(80, 185, 255);
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
