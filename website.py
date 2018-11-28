@@ -5,7 +5,7 @@ from datetime import datetime
 import json
 
 
-class WebSite(object):
+class WebApp(object):
 
     dbjson = 'data/db.json'
 
@@ -53,9 +53,7 @@ class WebSite(object):
 
     @cherrypy.expose
     def index(self):
-
-        return self.render('pages/index.html')
-
+        return open("pages/index.html","r").read()
 
     @cherrypy.expose
     def loginGuia(self, username=None, password=None):
@@ -134,4 +132,4 @@ if __name__ == '__main__':
             'tools.staticdir.dir': './vendor'
         }
     }
-    cherrypy.quickstart(WebApp(), 'pages/index.html', conf)
+    cherrypy.quickstart(WebApp(), '/', conf)
