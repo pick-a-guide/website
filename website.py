@@ -47,6 +47,20 @@ class WebApp(object):
                 self.set_user(usr)
                 break
 
+    def register_userJSON(self, usr, pwd, typ):
+
+        db_json = json.load(open(WebSite.dbjson))
+        users = db_json[typ]
+        aux = {'username' : usr, 'password' : pwd}
+
+        for u in users:
+            if u['username'] == usr and u['password'] == pwd:
+                print("Erro")
+                return
+
+        users.append(aux)
+        json.dump(db_json, open(WebApp.dbjson, 'w'))
+
 
 ########################################################################################################################
 #   Controllers
