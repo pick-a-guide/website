@@ -1,0 +1,11 @@
+{
+  "guia": [
+    {"username": "Joao", "password": "manel"},
+    {"username": "Pedro", "password": "toino"}
+  ],
+
+  "guiado": [
+    {"username": "Manuel", "password": "manel"},
+    {"username": "Antonio", "password": "toino"}
+  ]
+}
