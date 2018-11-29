@@ -114,7 +114,9 @@
 								</div>
 							</div>
 						</div>
-
+                        {% if errors %}
+                            <a style="text-align: center;line-height: 40px;"><p style="color: red">Falha na autenticação!</p></a>
+                        {% endif %}
 						<div class="form-group ">
 							<button class="button">Registar-se</button>
 						</div>
