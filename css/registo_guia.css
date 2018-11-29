@@ -14,8 +14,6 @@
 }
 
 h2.title { 
-    width: 700px;
-    height: 30px;
     margin: auto;
     font-size: 40px;
     font-family: 'Passion One', cursive; 
@@ -63,8 +61,7 @@ input::-webkit-input-placeholder {
 }
 
 .main-center{
-    margin: auto;
-    position: absolute;
+    margin-top: 80px;
     right: 200px;
     width: 600px;
     height: 700px;
@@ -89,30 +86,24 @@ input::-webkit-input-placeholder {
 }
 
 .text-left{
-    width: 700px;
-    height: 30px;
     margin: auto;
-    position: absolute;
     left:210px;
-    text-align: center;
 }
 
 .text-center{
     margin: auto;
-    width: 1150px;
     text-align: center;
 }
 
 .image_center{
-    position: absolute;
-    height: 500px;
-    width: 750px;
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 50px; 
 }
 
 div.relative {
-    position: absolute;
-    height: 800px;
-    width: 800px;
+    height: 550px;
+    width: 100%;
     left: 200px;
     top: 300px;
 }

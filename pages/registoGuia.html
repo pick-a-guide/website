@@ -62,9 +62,9 @@
         </nav>
     </div>
 
-    <div class="container">
-			<div class="row main">
-				<div class="panel-heading">
+    <div class="container" style="display: flex">
+			<div class="row main" style="margin-right:0px; margin-left:0px">
+				<div class="panel-heading" style="width:100%">
 	               <div class="text-left">
                         <h2 class="title">Torne-se parceiro do Pick-A-Guide</h2>
                         <p><h2 class="title">Aumente os seus rendimentos</h2></p>   
@@ -74,73 +74,71 @@
                 <div class="relative">
                     <img src="../assets/registo_guia.png" class="image_center">
                 </div>
-                <!-- Aqui está o form -->
-				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
-						
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Nome</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Seu Nome"/>
-								</div>
-							</div>
-						</div>
+            </div>
+            <div class="main-login main-center">
+                <form class="form-horizontal" method="post" action="#">
+                    
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Nome</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="name" id="name"  placeholder="Seu Nome"/>
+                            </div>
+                        </div>
+                    </div>
 
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Seu Email"/>
-								</div>
-							</div>
-						</div>
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"  placeholder="Seu Email"/>
+                            </div>
+                        </div>
+                    </div>
 
-						<div class="form-group">
-							<label for="mobile" class="cols-sm-2 control-label required">Telefone</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="mobile" id="mobile"  placeholder="Seu Telefone"/>
-								</div>
-							</div>
-						</div>
+                    <div class="form-group">
+                        <label for="mobile" class="cols-sm-2 control-label required">Telefone</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="mobile" id="mobile"  placeholder="Seu Telefone"/>
+                            </div>
+                        </div>
+                    </div>
 
-                        <div class="form-group">
-							<label for="mobile" class="cols-sm-2 control-label required">Criar palavra-passe</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="pass" id="pass"  placeholder="Sua Palavra-passe"/>
-								</div>
-							</div>
-						</div>
+                    <div class="form-group">
+                        <label for="mobile" class="cols-sm-2 control-label required">Criar palavra-passe</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="pass" id="pass"  placeholder="Sua Palavra-passe"/>
+                            </div>
+                        </div>
+                    </div>
 
-						<div class="form-group">
-							<label for="country" class="cols-sm-2 control-label">Cidade</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span>
-									<select class="form-control" name="city" id="city"  placeholder="Sua cidade">
-                                    <option>-Escolha-</option>
-                                    <option>Guimarães</option>
-                                    <option>Porto</option>
-                                    <option>Aveiro</option>
-                                    <option>Lisboa</option>
-                                    <option>Algarve</option>
-                                    </select>
-								</div>
-							</div>
-						</div>
+                    <div class="form-group">
+                        <label for="country" class="cols-sm-2 control-label">Cidade</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span>
+                                <select class="form-control" name="city" id="city"  placeholder="Sua cidade">
+                                <option>-Escolha-</option>
+                                <option>Porto</option>
+                                <option>Aveiro</option>
+                                <option>Lisboa</option>
+                                <option>Algarve</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-						<div class="form-group ">
-							<button class="button">Registar-se</button>
-						</div>
-					</form>
-				</div>
-			</div>
+                    <div class="form-group ">
+                        <button class="button">Registar-se</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
     <!-- Bootstrap core JavaScript -->
