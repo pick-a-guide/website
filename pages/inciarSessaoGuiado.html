@@ -41,8 +41,8 @@
             <input type="password" class="form-control" style="padding: 1rem 17rem; font-size: 1rem; text-align: center;" id="exampleInputPassword1" placeholder="Password">
           </div>
 
-          {% if erros %}
-          <a onload="alert('Falha na autenticação!')"></a>
+          {% if errors %}
+          <a style="padding: 1rem 17rem; font-size: 1rem; text-align: center;""><p style="color: red">Falha na autenticação</p></a>
           {% endif %}
 
           <button type="submit" class="btn btn-primary btn-lg btn-block" style="font-size: 1rem;">Iniciar sessão</button>
