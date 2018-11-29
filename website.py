@@ -15,7 +15,6 @@ class WebApp(object):
                 autoescape=select_autoescape(['html', 'xml'])
                 )
 
-
 ########################################################################################################################
 #   Utilities
 
@@ -47,17 +46,17 @@ class WebApp(object):
                 self.set_user(usr)
                 break
 
-    def register_userJSON(self, usr, pwd, typ):
+    def register_userJSON(self, usr, pwd, typ, data):
 
         db_json = json.load(open(WebApp.dbjson))
         users = db_json[typ]
-        aux = {'username' : usr, 'password' : pwd}
+        aux = {'username' : usr, 'password' : pwd, 'data': data}
 
         for u in users:
-            if u['username'] == usr and u['password'] == pwd:
-                print("Erro")
+            if u['username'] == usr:
                 return
 
+        self.set_user(usr)
         users.append(aux)
         json.dump(db_json, open(WebApp.dbjson, 'w'))
 
@@ -107,7 +106,7 @@ class WebApp(object):
             return self.render('iniciarSessaoGuiado.html', tparams)
         else:
 
-            self.do_authenticationJSON(username, password, 'guia')
+            self.do_authenticationJSON(username, password, 'guiado')
             if not self.get_user()['is_authenticated']:
                 tparams = {
                     'errors': True,
@@ -117,6 +116,46 @@ class WebApp(object):
             else:
                 raise cherrypy.HTTPRedirect("dashboardGuiado")
 
+    @cherrypy.expose
+    def registoGuia(self, name=None, email=None, mobile=None, password=None, city=None):
+        if name == None:
+            tparams = {
+                'errors': False,
+                'user': self.get_user(),
+            }
+            return self.render('registoGuia.html',tparams)
+        else:
+            if name != None and email != None and mobile != None and password != None and city != None:
+                self.register_userJSON(email,password,'guia',{'name':name,'mobile':mobile,'city':city})
+            if not self.get_user()['is_authenticated']:
+                tparams = {
+                    'errors': True,
+                    'user': self.get_user(),
+                }
+                return self.render('registoGuia.html',tparams)
+            else:
+                raise cherrypy.HTTPRedirect("dashboardGuia")
+    
+    @cherrypy.expose
+    def registoGuiado(self, name=None, email=None, mobile=None, password=None):
+        if name == None:
+            tparams = {
+                'errors': False,
+                'user': self.get_user()
+            }
+            return self.render('registoGuiado.html',tparams)
+        else:
+            if name != None and email != None and mobile != None and password != None:
+                self.register_userJSON(email,password,'guiado',{'name':name,'mobile':mobile})
+            if not self.get_user()['is_authenticated']:
+                tparams = {
+                    'errors': True,
+                    'user': self.get_user(),
+                }
+                return self.redner('registoGuiado.html',tparams)
+            else:
+                raise cherrypy.HTTPRedirect("dashboardGuiado")
+    
     @cherrypy.expose
     def dashboardGuia(self):
         return open('pages/dashguia.html').read()
