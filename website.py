@@ -81,8 +81,8 @@ class WebApp(object):
     def iniciarSessaoGuia(self, username=None, password=None):
         if username == None:
             tparams = {
-                'errors': False
-                #'user': self.get_user(),
+                'errors': False,
+                'user': self.get_user(),
             }
             return self.render('iniciarSessaoGuia.html', tparams)
         else:
@@ -98,32 +98,32 @@ class WebApp(object):
                 raise cherrypy.HTTPRedirect("dashboardGuia")
 
     @cherrypy.expose
-    def loginGuiado(self, username=None, password=None):
+    def iniciarSessaoGuiado(self, username=None, password=None):
         if username == None:
             tparams = {
-                'title': 'Login',
                 'errors': False,
                 'user': self.get_user(),
-                'year': datetime.now().year,
             }
-            return self.render('pages/iniciarSessaoGuiado.html', tparams)
+            return self.render('iniciarSessaoGuiado.html', tparams)
         else:
 
             self.do_authenticationJSON(username, password, 'guia')
             if not self.get_user()['is_authenticated']:
                 tparams = {
-                    'title': 'Login',
                     'errors': True,
                     'user': self.get_user(),
-                    'year': datetime.now().year,
                 }
-                return self.render('pages/login.html', tparams)
+                return self.render('iniciarSessaoGuiado.html', tparams)
             else:
-                raise cherrypy.HTTPRedirect("pages/index.html")
+                raise cherrypy.HTTPRedirect("dashboardGuiado")
 
     @cherrypy.expose
     def dashboardGuia(self):
         return open('pages/dashguia.html').read()
+
+    @cherrypy.expose
+    def dashboardGuiado(self):
+        return open('pages/dashguiado.html').read()
     
     @cherrypy.expose
     def sair(self):
