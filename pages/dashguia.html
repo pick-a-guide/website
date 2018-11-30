@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>DASHBOARD</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,10 +31,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="dashguia">Página Principal</a>
+                    <a onclick="editar_perfil('pagina_inicial')" href="dashguia">Página Principal</a>
                 </li>
                 <li>
-                    <a href="#">Perfil</a>
+                    <a href="#" onclick="editar_perfil('perfil')">Perfil</a>
                 </li>
                 <li>
                     <a href="#">Minhas Visitas</a>
@@ -56,13 +56,83 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div name="pagina_inicial" class="stuff" id="page-content-wrapper" >
             <div class="container-fluid";style="allign-items: center">
                 <h1>Visitas feitas na última semana</h1>
                 <img src="../assets/graph.png" style="width:70%"></img>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+
+         <div name="perfil" class="stuff" id="page-content-wrapper" hidden=true>
+            <div class="container-fluid";style="allign-items: center">
+                 <div class="main-login main-center">
+                <form class="form-horizontal" method="post" action="#">
+                    
+                    <div>
+                        <h1 style="color: black">Altere os seus dados</h1>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 50px">
+                        <label for="mobile" class="cols-sm-2 control-label required">Novo telemóvel</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="mobile" id="mobile"  placeholder="Insira o novo telemóvel"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="country" class="cols-sm-2 control-label">Nova cidade</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <select class="form-control" name="city" id="city"  placeholder="Insira a sua nova cidade">
+                                <option>-Escolha-</option>
+                                <option>Porto</option>
+                                <option>Aveiro</option>
+                                <option>Lisboa</option>
+                                <option>Algarve</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="form-group" style="margin-bottom: 30px">
+                        <label for="mobile" class="cols-sm-2 control-label required">Confirmar a sua palavra-passe</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="password" id="pass"  placeholder="Sua Palavra-passe"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if errors %}
+                        <a style="text-align: left;line-height: 20px;"><p style="color: red">Palavra-passe não coincide, tente de novo!</p></a>
+                    {% endif %}
+
+                    <div class="form-group ">
+                        <button type="submit" class="button">Guardar alteraçoes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script>
+                function editar_perfil(name){
+                    to_hide = document.getElementsByClassName("stuff");
+                    for(var i = 0; i < to_hide.length; i++)
+                    {
+                        to_hide[i].hidden = true;
+                    }
+                    document.getElementsByName(name)[0].hidden = false;    
+                }
+                
+        </script>
+        <script>
+            editar_perfil({{ page }});
+        </script>
 
     </div>
     <!-- /#wrapper -->
