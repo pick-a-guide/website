@@ -63,18 +63,20 @@ class WebApp(object):
     def change_data(self, usr, typ, dt):
         db_json = json.load(open(WebApp.dbjson))
         users = db_json[typ]
-        data = {}
-
+        aux = {}
         for u in users:
             if u['username'] == usr:
-                data = u['data']
-                
-        for each in dt:
-            data[each] = dt[each]
-
-        json.dump(db_json, open(WebApp.dbjson))
-        return True
-
+                aux = u
+                users.remove(u)
+                if 'data' not in aux.keys():
+                    aux['data'] = {}
+                for each in dt.keys():
+                    aux['data'][each] = dt[each]
+        
+        if aux == {}:
+            return False
+        users.append(aux)
+        json.dump(db_json, open(WebApp.dbjson, 'w'))
 
 ########################################################################################################################
 #   Controllers
@@ -181,7 +183,7 @@ class WebApp(object):
             }
             return self.render('dashguia.html',tparams)
         else:
-            if not self.do_authenticationJSON(self.get_user(),password,"guia"):
+            if not self.do_authenticationJSON(self.get_user()['username'],password,"guia"):
                 tparams = {
                     'errors': True,
                     'page': 'perfil'
@@ -193,7 +195,7 @@ class WebApp(object):
                     data["mobile"] = mobile
                 if city != None:
                     data["city"] = city
-                self.change_data(self.get_user(),"guia",data)
+                self.change_data(self.get_user()['username'],"guia",data)
                 tparams = {
                     'errors': False,
                     'page': 'perfil'
@@ -213,7 +215,6 @@ class WebApp(object):
     @cherrypy.expose
     def signup(self):
         pass
-
 
 if __name__ == '__main__':
     conf = {
