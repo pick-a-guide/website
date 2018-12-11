@@ -1,81 +1,53 @@
-<!DOCTYPE html>
+<div id="wrapper" class="toggled">
 
-{% extends "dashguia.html" %}
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-nav" style="height:100%">
+              <li class="sidebar-brand" style="margin-bottom:5px;text-indent:0px">
+                  <a href="#">
+                     	<img src="../assets/logo.png" style="width:100%"></img>
+                  </a>
+              </li>
+              <li>
+                  <a href="dashguiado">Página Principal</a>
+              </li>
+              <li>
+                  <a href="#">Perfil</a>
+              </li>
+              <li>
+                  <a href="#">Procurar Guia</a>
+              </li>
+              <li>
+                  <a href="#">Minhas Viagens</a>
+              </li>
+              <li>
+                  <a href="#">Mensagens</a>
+              </li>
+              <li>
+                  <a href="#">Definições</a>
+              </li>
+              <li>
+                  <a href="#">Ajuda</a>
+              </li>
+	            <li style="position:absolute;width:100%;bottom:0">
+	                <a href="index">Sair</a>
+	            </li>
+          </ul>
+      </div>
 
-{% block escolherdestino %}
-
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Pick-a-Guide</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../css/simple-sidebar.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <div id="wrapper" class="toggled">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav" style="height:100%">
-                <li class="sidebar-brand" style="margin-bottom:5px;text-indent:0px">
-                    <a href="#">
-                       	<img src="../assets/logo.png" style="width:100%"></img>
-                    </a>
-                </li>
-                <li>
-                    <a href="dashguiado">Página Principal</a>
-                </li>
-                <li>
-                    <a href="#">Perfil</a>
-                </li>
-                <li>
-                    <a href="#">Procurar Guia</a>
-                </li>
-                <li>
-                    <a href="#">Minhas Viagens</a>
-                </li>
-                <li>
-                    <a href="#">Mensagens</a>
-                </li>
-                <li>
-                    <a href="#">Definições</a>
-                </li>
-                <li>
-                    <a href="#">Ajuda</a>
-                </li>
-		            <li style="position:absolute;width:100%;bottom:0">
-		                <a href="index">Sair</a>
-		            </li>
-            </ul>
+      <div class="card my-4" style="margin-top: 0rem !important">
+        <div class="card-header">
+          <h5>Pesquisa</h5>
         </div>
-
-        <div class="card my-4" style="margin-top: 0rem !important">
-          <div class="card-header">
-            <h5>Pesquisa</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="Cidade pretendida...">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Procurar!</button>
+            </span>
           </div>
-          <div class="card-body">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Cidade pretendida...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Procurar!</button>
-              </span>
-            </div>
-        </div>
-    </div>
+      </div>
+  </div>
 
-</body>
-
-{% endblock %}
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/simple-sidebar.css" rel="stylesheet">
