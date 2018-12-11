@@ -200,8 +200,28 @@ class WebApp(object):
         return self.render('dashguia.html',tparams)
 
     @cherrypy.expose
-    def dashboardGuiado(self):
-        return open('pages/dashguiado.html').read()
+    def dashboardGuiado(self, page=None, password=None, mobile=None):
+        tparams = {
+            'user': self.get_user(),
+            'dashg1': False,
+            'dashg2': False,
+            'dashg3': False,
+            'dashg4': False,
+            'dashg5': False,
+            'dashg6': False,
+            'errors': False
+        }
+        if page != None:
+            tparams[page] = True
+        if password != None:
+            if not self.do_authenticationJSON(self.get_user()['username'],password,"guiado"):
+                tparams['errors'] = True
+            else:
+                data = {}
+                if mobile != None:
+                    data["mobile"] = mobile
+                self.change_data(self.get_user()['username'],"guiado",data)
+        return self.render('dashguiado.html',tparams)
     
     @cherrypy.expose
     def teaserGuia(self):

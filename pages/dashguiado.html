@@ -26,40 +26,40 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav" style="height:100%">
                 <li class="sidebar-brand" style="margin-bottom:5px;text-indent:0px">
-                    <a href="#">
+                    <a href="/">
                        	<img src="../assets/logo.png" style="width:100%"></img>
                     </a>
                 </li>
                 <li>
-                    <a href="dashguiado">Página Principal</a>
-                    <a href="../dashguiado.html">Página Principal</a>
+                    <a href="/dashboardGuiado?page=dashg1">Página Principal</a>
                 </li>
                 <li>
-                    <a href="#">Perfil</a>
+                    <a href="/dashboardGuiado?page=dashg2">Perfil</a>
                 </li>
                 <li>
-                    <a href="#">Procurar Guia</a>
+                    <a href="/dashboardGuiado?page=dashg3">Procurar Guia</a>
                 </li>
                 <li>
-                    <a href="#">Minhas Viagens</a>
+                    <a href="/dashboardGuiado?page=dashg4">Minhas Viagens</a>
                 </li>
                 <li>
-                    <a href="#">Mensagens</a>
+                    <a href="/dashboardGuiado?page=dashg5">Mensagens</a>
                 </li>
                 <li>
-                    <a href="#">Definições</a>
+                    <a href="/dashboardGuiado?page=dashg6">Definições</a>
                 </li>
                 <li>
-                    <a href="#">Ajuda</a>
+                    <a href="/dashboardGuiado?page=dashg7">Ajuda</a>
                 </li>
 		<li style="position:absolute;width:100%;bottom:0">
-		    <a href="sair">Sair</a>
+		    <a href="/sair">Sair</a>
 		</li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
+	{% if dashg1 %}
         <div id="page-content-wrapper">
             <div class="container-fluid";style="allign-items: center; text-allign: center">
                 <h1>Sugestões Pick-a-Guide</h1>
@@ -99,6 +99,26 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+	{% endif %}
+	{% if dashg2 %}
+	{% include 'dashg2.html' %}
+	{% endif %}
+	{% if dashg3 %}
+	{% include 'dashg3.html' %}
+	{% endif %}
+	{% if dashg4 %}
+	{% include 'dashg4.html' %}
+	{% endif %}
+	{% if dashg5 %}
+	{% include 'dashg5.html' %}
+	{% endif %}
+	{% if dashg6 %}
+	{% include 'dashg6.html' %}
+	{% endif %}
+	{% if dashg7 %}
+	{% include 'dashg7.html' %}
+	{% endif %}
+	
 
     </div>
     <!-- /#wrapper -->
