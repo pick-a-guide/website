@@ -60,6 +60,17 @@ class WebApp(object):
         users.append(aux)
         json.dump(db_json, open(WebApp.dbjson, 'w'))
 
+    def get_data(self, usr, typ):
+        db_json = json.load(open(WebApp.dbjson))
+        users = db_json[typ]
+        for u in users:
+            if u['username'] == usr:
+                if "data" in u.keys():
+                    return u['data']
+                else:
+                    return []
+        return []
+
     def change_data(self, usr, typ, dt):
         db_json = json.load(open(WebApp.dbjson))
         users = db_json[typ]
@@ -176,7 +187,7 @@ class WebApp(object):
     @cherrypy.expose
     def dashboardGuia(self, page=None, password=None, mobile=None, city=None):
         tparams = {
-            'user': self.get_user(),
+            'username': self.get_user()['username'],
             'dashG1': False,
             'dashG2': False,
             'dashG3': False,
@@ -187,6 +198,10 @@ class WebApp(object):
         }
         if page != None:
             tparams[page] = True
+        if page == "dashG2":
+            data = self.get_data(self.get_user()['username'],"guia")
+            for each in data:
+                tparams[each] = data[each]
         if password != None:
             if not self.do_authenticationJSON(self.get_user()['username'],password,"guia"):
                 tparams['errors'] = True
