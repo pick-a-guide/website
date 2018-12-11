@@ -26,7 +26,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav" style="height:100%">
                 <li class="sidebar-brand" style="margin-bottom:5px;text-indent:0px">
-                    <a href="#">
+                    <a href="/">
                        	<img src="../assets/logo.png" style="width:100%"></img>
                     </a>
                 </li>
@@ -49,7 +49,7 @@
                     <a href="dashboardGuia?page=dashG6">Ajuda</a>
                 </li>
 		<li style="position:absolute;width:100%;bottom:0">
-		    <a href="sair">Sair</a>
+		    <a href="/sair">Sair</a>
 		</li>
             </ul>
         </div>
@@ -65,6 +65,9 @@
         </div>
 	{% endif %}
         <!-- /#page-content-wrapper -->
+	{% if dashG6 %}
+	{% include "dashG6.html" %}
+	{% endif %}
 	{% if dashG5 %}
          <div name="perfil" class="stuff" id="page-content-wrapper">
             <div class="container-fluid";style="allign-items: center">

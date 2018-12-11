@@ -204,14 +204,17 @@ class WebApp(object):
         return open('pages/dashguiado.html').read()
     
     @cherrypy.expose
+    def teaserGuia(self):
+        return open('pages/teaserGuia.html').read()
+
+    @cherrypy.expose
+    def teaserGuiado(self):
+        return open('pages/teaserGuiado.html').read()
+    
+    @cherrypy.expose
     def sair(self):
         self.set_user()
         raise cherrypy.HTTPRedirect("/")
-
-
-    @cherrypy.expose
-    def signup(self):
-        pass
 
 if __name__ == '__main__':
     conf = {
