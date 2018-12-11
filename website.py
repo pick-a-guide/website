@@ -111,7 +111,7 @@ class WebApp(object):
                 }
                 return self.render('iniciarSessaoGuia.html', tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashboardGuia?=dashG1")
+                raise cherrypy.HTTPRedirect("dashboardGuia?page=dashG1")
 
     @cherrypy.expose
     def iniciarSessaoGuiado(self, username=None, password=None):
@@ -171,7 +171,7 @@ class WebApp(object):
                 }
                 return self.render('registoGuiado.html',tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashboardGuiado=dashg1")
+                raise cherrypy.HTTPRedirect("dashboardGuiado?page=dashg1")
     
     @cherrypy.expose
     def dashboardGuia(self, page=None, password=None, mobile=None, city=None):

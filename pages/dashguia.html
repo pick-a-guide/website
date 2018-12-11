@@ -31,22 +31,22 @@
                     </a>
                 </li>
                 <li>
-                    <a onclick="editar_perfil('pagina_inicial')" href="dashguia">Página Principal</a>
+                    <a href="dashboardGuia?page=dashG1">Página Principal</a>
                 </li>
                 <li>
-                    <a href="#" onclick="editar_perfil('perfil')">Perfil</a>
+                    <a href="dashboardGuia?page=dashG2">Perfil</a>
                 </li>
                 <li>
-                    <a href="#">Minhas Visitas</a>
+                    <a href="dashboardGuia?page=dashG3">Minhas Visitas</a>
                 </li>
                 <li>
-                    <a href="#">Mensagens</a>
+                    <a href="dashboardGuia?page=dashG4">Mensagens</a>
                 </li>
                 <li>
-                    <a href="#">Definições</a>
+                    <a href="dashboardGuia?page=dashG5">Definições</a>
                 </li>
                 <li>
-                    <a href="#">Ajuda</a>
+                    <a href="dashboardGuia?page=dashG6">Ajuda</a>
                 </li>
 		<li style="position:absolute;width:100%;bottom:0">
 		    <a href="sair">Sair</a>
@@ -56,15 +56,17 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
+	{% if dashG1 %}
         <div name="pagina_inicial" class="stuff" id="page-content-wrapper" >
             <div class="container-fluid";style="allign-items: center">
                 <h1>Visitas feitas na última semana</h1>
                 <img src="../assets/graph.png" style="width:70%"></img>
             </div>
         </div>
+	{% endif %}
         <!-- /#page-content-wrapper -->
-
-         <div name="perfil" class="stuff" id="page-content-wrapper" hidden=true>
+	{% if dashG5 %}
+         <div name="perfil" class="stuff" id="page-content-wrapper">
             <div class="container-fluid";style="allign-items: center">
                  <div class="main-login main-center">
                 <form class="form-horizontal" method="post" action="#">
@@ -117,23 +119,7 @@
                 </form>
             </div>
         </div>
-
-
-        <script>
-                function editar_perfil(name){
-                    to_hide = document.getElementsByClassName("stuff");
-                    for(var i = 0; i < to_hide.length; i++)
-                    {
-                        to_hide[i].hidden = true;
-                    }
-                    document.getElementsByName(name)[0].hidden = false;    
-                }
-                
-        </script>
-        <script>
-            editar_perfil("{{ page }}");
-        </script>
-
+	{% endif %}
     </div>
     <!-- /#wrapper -->
 
