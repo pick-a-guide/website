@@ -156,3 +156,9 @@ div.relative_2{
     width: 75%;
     height: 30%;
 }
+
+.row_joao{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+}
