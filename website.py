@@ -111,7 +111,7 @@ class WebApp(object):
                 }
                 return self.render('iniciarSessaoGuia.html', tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashboardGuia")
+                raise cherrypy.HTTPRedirect("dashboardGuia?=dashG1")
 
     @cherrypy.expose
     def iniciarSessaoGuiado(self, username=None, password=None):
@@ -131,7 +131,7 @@ class WebApp(object):
                 }
                 return self.render('iniciarSessaoGuiado.html', tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashboardGuiado")
+                raise cherrypy.HTTPRedirect("dashboardGuiado?page=dashg1")
 
     @cherrypy.expose
     def registoGuia(self, name=None, email=None, mobile=None, password=None, city=None):
@@ -151,7 +151,7 @@ class WebApp(object):
                 }
                 return self.render('registoGuia.html',tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashboardGuia")
+                raise cherrypy.HTTPRedirect("dashboardGuia?page=dashG1")
     
     @cherrypy.expose
     def registoGuiado(self, name=None, email=None, mobile=None, password=None):
@@ -171,24 +171,25 @@ class WebApp(object):
                 }
                 return self.render('registoGuiado.html',tparams)
             else:
-                raise cherrypy.HTTPRedirect("dashboardGuiado")
+                raise cherrypy.HTTPRedirect("dashboardGuiado=dashg1")
     
     @cherrypy.expose
-    def dashboardGuia(self, password=None, mobile=None, city=None):
-        if password == None:
-            tparams = {
-                'errors': False,
-                'user': self.get_user(),
-                'page': 'pagina_inicial'
-            }
-            return self.render('dashguia.html',tparams)
-        else:
+    def dashboardGuia(self, page=None, password=None, mobile=None, city=None):
+        tparams = {
+            'user': self.get_user(),
+            'dashG1': False,
+            'dashG2': False,
+            'dashG3': False,
+            'dashG4': False,
+            'dashG5': False,
+            'dashG6': False,
+            'errors': False
+        }
+        if page != None:
+            tparams[page] = True
+        if password != None:
             if not self.do_authenticationJSON(self.get_user()['username'],password,"guia"):
-                tparams = {
-                    'errors': True,
-                    'page': 'perfil'
-                }
-                return self.render('dashguia.html',tparams)
+                tparams['errors'] = True
             else:
                 data = {}
                 if mobile != None:
@@ -196,11 +197,7 @@ class WebApp(object):
                 if city != None:
                     data["city"] = city
                 self.change_data(self.get_user()['username'],"guia",data)
-                tparams = {
-                    'errors': False,
-                    'page': 'perfil'
-                }
-                return self.render('dashguia.html',tparams)
+        return self.render('dashguia.html',tparams)
 
     @cherrypy.expose
     def dashboardGuiado(self):
