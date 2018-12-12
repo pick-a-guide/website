@@ -116,7 +116,7 @@
                         <label for="mobile" class="cols-sm-2 control-label required">Imagem de perfil</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="file" style="border:none;" class="form-control" onchange="upload(this)" name="file" id="file"/>
+                                <input type="file" style="border:none;" class="form-control" name="file" id="file"/>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                     {% endif %}
 
                     <div class="form-group ">
-                        <button type="submit" class="button">Guardar alteraçoes</button>
+                        <button type="submit" onclick="upload()" class="button">Guardar alteraçoes</button>
                     </div>
                 </form>
             </div>
@@ -150,13 +150,13 @@
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
-	function upload(e)
+	function upload()
 	{
 	    var xhr = new XMLHttpRequest();
 	    xhr.open('POST','/upload',true);
 	    var data = new FormData();
-	    data.append("file",e.files[0]);
-	    data.append("type","guia")
+	    data.append("file",document.getElementById("file").files[0]);
+	    data.append("type","guia");
 	    xhr.send(data);
 	}
     </script>

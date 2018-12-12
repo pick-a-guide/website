@@ -46,3 +46,15 @@
         </form>
     </div>
 </div>
+
+<script>
+    function upload()
+    {
+        var xhr = new XMLHttpRequest();
+	xhr.open('POST','/upload',true);
+	var data = new FormData();
+	data.append("file",document.getElementById("file").files[0]);
+	data.append("type","guia");
+	xhr.send(data);
+    }
+</script>
