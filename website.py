@@ -211,14 +211,15 @@ class WebApp(object):
                 tparams['errors'] = True
             else:
                 data = {}
-                if mobile != None:
+                if mobile != None and mobile != "":
                     data["mobile"] = mobile
-                if city != None:
+                if city != None and city != "-Escolha-":
                     data["city"] = city
                 if file != None:
                     path = "assets/pfp/guia/"+tparams['username']
                     data['image'] = path
                 self.change_data(self.get_user()['username'],"guia",data)
+        self.set_user(tparams['username'])
         return self.render('dashguia.html',tparams)
 
     @cherrypy.expose
@@ -248,12 +249,13 @@ class WebApp(object):
                 tparams['errors'] = True
             else:
                 data = {}
-                if mobile != None:
+                if mobile != None and mobile != "":
                     data["mobile"] = mobile
                 if file != None:
-                    path = "assets/pfp/guiado//"+tparams['username']
+                    path = "assets/pfp/guiado/"+tparams['username']
                     data['image'] = path
                 self.change_data(self.get_user()['username'],"guiado",data)
+        self.set_user(tparams['username'])
         return self.render('dashguiado.html',tparams)
     
     @cherrypy.expose
@@ -261,7 +263,9 @@ class WebApp(object):
         return open('pages/teaserGuia.html').read()
 
     @cherrypy.expose
-    def upload(self, file, type):
+    def upload(self, file, type, password):
+        if not self.do_authenticationJSON(self.get_user()['username'],password,type):
+            return
         path = "assets/pfp/"+type+"//"+self.get_user()['username']
         if os.path.isfile(path):
             os.remove(path)

@@ -126,6 +126,18 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function upload()
+	{
+	    var xhr = new XMLHttpRequest();
+	    xhr.open('POST','/upload',true);
+	    var data = new FormData();
+	    data.append("file",document.getElementById("file").files[0]);
+	    data.append("type","guiado");
+	    data.append("password",document.getElementById("pass").value);
+	    xhr.send(data);
+	}
+    </script>
 </body>
 
 </html>
