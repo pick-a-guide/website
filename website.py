@@ -186,6 +186,8 @@ class WebApp(object):
     
     @cherrypy.expose
     def dashboardGuia(self, page=None, password=None, mobile=None, city=None, file=None):
+        if not self.get_user()['is_authenticated']:
+            raise cherrypy.HTTPRedirect("/")
         tparams = {
             'username': self.get_user()['username'],
             'dashG1': False,
@@ -202,6 +204,8 @@ class WebApp(object):
             data = self.get_data(self.get_user()['username'],"guia")
             for each in data:
                 tparams[each] = data[each]
+            if "image" not in data:
+                tparams["image"] = "assets/pfp/default.png"
         if password != None:
             if not self.do_authenticationJSON(self.get_user()['username'],password,"guia"):
                 tparams['errors'] = True
@@ -212,15 +216,17 @@ class WebApp(object):
                 if city != None:
                     data["city"] = city
                 if file != None:
-                    path = "data/images/guia"+tparams['username']
+                    path = "assets/pfp/guia/"+tparams['username']
                     data['image'] = path
                 self.change_data(self.get_user()['username'],"guia",data)
         return self.render('dashguia.html',tparams)
 
     @cherrypy.expose
     def dashboardGuiado(self, page=None, password=None, mobile=None, file=None):
+        if not self.get_user()['is_authenticated']:
+            raise cherrypy.HTTPRedirect("/")
         tparams = {
-            'user': self.get_user(),
+            'username': self.get_user()['username'],
             'dashg1': False,
             'dashg2': False,
             'dashg3': False,
@@ -231,6 +237,12 @@ class WebApp(object):
         }
         if page != None:
             tparams[page] = True
+        if page == "dashg2":
+            data = self.get_data(self.get_user()['username'],"guiado")
+            for each in data:
+                tparams[each] = data[each]
+            if "image" not in data:
+                tparams["image"] = "assets/pfp/default.png"
         if password != None:
             if not self.do_authenticationJSON(self.get_user()['username'],password,"guiado"):
                 tparams['errors'] = True
@@ -239,7 +251,7 @@ class WebApp(object):
                 if mobile != None:
                     data["mobile"] = mobile
                 if file != None:
-                    path = "data/images/guiado"+tparams['username']
+                    path = "assets/pfp/guiado//"+tparams['username']
                     data['image'] = path
                 self.change_data(self.get_user()['username'],"guiado",data)
         return self.render('dashguiado.html',tparams)
@@ -250,8 +262,7 @@ class WebApp(object):
 
     @cherrypy.expose
     def upload(self, file, type):
-        print("dsad")
-        path = "data/images/"+type+"/"+self.get_user()['username']
+        path = "assets/pfp/"+type+"//"+self.get_user()['username']
         if os.path.isfile(path):
             os.remove(path)
         open(path,"bw+").write(file.file.read())
