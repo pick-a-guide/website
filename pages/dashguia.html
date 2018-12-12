@@ -112,6 +112,15 @@
                         </div>
                     </div>
 
+                    <div class="form-group" style="margin-bottom: 30px">
+                        <label for="mobile" class="cols-sm-2 control-label required">Imagem de perfil</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="file" style="border:none;" class="form-control" value="Carregar imagem" name="file" id="file"/>
+                            </div>
+                        </div>
+                    </div>
+
                      <div class="form-group" style="margin-bottom: 30px">
                         <label for="mobile" class="cols-sm-2 control-label required">Confirmar a sua palavra-passe</label>
                         <div class="cols-sm-10">
@@ -120,6 +129,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
 
                     {% if errors %}
                         <a style="text-align: left;line-height: 20px;"><p style="color: red">Palavra-passe não coincide, tente de novo!</p></a>
