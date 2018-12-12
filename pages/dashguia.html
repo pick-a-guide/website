@@ -116,7 +116,7 @@
                         <label for="mobile" class="cols-sm-2 control-label required">Imagem de perfil</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="file" style="border:none;" class="form-control" value="Carregar imagem" name="file" id="file"/>
+                                <input type="file" style="border:none;" class="form-control" onchange="upload(this)" name="file" id="file"/>
                             </div>
                         </div>
                     </div>
@@ -149,6 +149,17 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+	function upload(e)
+	{
+	    var xhr = new XMLHttpRequest();
+	    xhr.open('POST','/upload',true);
+	    var data = new FormData();
+	    data.append("file",e.files[0]);
+	    data.append("type","guia")
+	    xhr.send(data);
+	}
+    </script>
 </body>
 
 </html>

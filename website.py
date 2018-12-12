@@ -185,7 +185,7 @@ class WebApp(object):
                 raise cherrypy.HTTPRedirect("dashboardGuiado?page=dashg1")
     
     @cherrypy.expose
-    def dashboardGuia(self, page=None, password=None, mobile=None, city=None, image=None):
+    def dashboardGuia(self, page=None, password=None, mobile=None, city=None, file=None):
         tparams = {
             'username': self.get_user()['username'],
             'dashG1': False,
@@ -211,17 +211,14 @@ class WebApp(object):
                     data["mobile"] = mobile
                 if city != None:
                     data["city"] = city
-                if image != None:
-                    path = "data/images/guia"+data['username']
-                    if os.path.isfile(path):
-                        os.remove(path)
-                    open(path,"w+").write(image.read())
+                if file != None:
+                    path = "data/images/guia"+tparams['username']
                     data['image'] = path
                 self.change_data(self.get_user()['username'],"guia",data)
         return self.render('dashguia.html',tparams)
 
     @cherrypy.expose
-    def dashboardGuiado(self, page=None, password=None, mobile=None, image=None):
+    def dashboardGuiado(self, page=None, password=None, mobile=None, file=None):
         tparams = {
             'user': self.get_user(),
             'dashg1': False,
@@ -241,11 +238,8 @@ class WebApp(object):
                 data = {}
                 if mobile != None:
                     data["mobile"] = mobile
-                if image != None:
-                    path = "data/images/guiado"+data['username']
-                    if os.path.isfile(path):
-                        os.remove(path)
-                    open(path,"w+").write(image.read())
+                if file != None:
+                    path = "data/images/guiado"+tparams['username']
                     data['image'] = path
                 self.change_data(self.get_user()['username'],"guiado",data)
         return self.render('dashguiado.html',tparams)
@@ -253,6 +247,14 @@ class WebApp(object):
     @cherrypy.expose
     def teaserGuia(self):
         return open('pages/teaserGuia.html').read()
+
+    @cherrypy.expose
+    def upload(self, file, type):
+        print("dsad")
+        path = "data/images/"+type+"/"+self.get_user()['username']
+        if os.path.isfile(path):
+            os.remove(path)
+        open(path,"bw+").write(file.file.read())
 
     @cherrypy.expose
     def teaserGuiado(self):
