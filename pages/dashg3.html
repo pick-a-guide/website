@@ -1,0 +1,94 @@
+<div id="wrappper" class="toggled">
+
+      <div class="card my-4" style="margin-top: 0 !important; padding-top: 0 !important">
+        <div class="card-header" >
+          <h5>Pesquisa</h5>
+        </div>
+        <div class="card-body" >
+          <div class="form-group">
+              <label for="country" class="cols-sm-2 control-label">Cidade</label>
+              <div class="cols-sm-10">
+                  <div class="input-group">
+                      <select class="form-control" name="city" id="city"  placeholder="Sua cidade">
+                      <option>-Escolha-</option>
+                      <option>Porto</option>
+                      <option>Aveiro</option>
+                      <option>Lisboa</option>
+                      <option>Algarve</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+              <button onclick="myFunction()" class="btn btn-secondary" type="button">Procurar!</button>
+        </div>
+      </div>
+</div>
+
+<div id="wrapper" class="toggled" hidden= true style="margin-left: 0; padding-left: 0">
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Introduction Row -->
+    <h1 class="my-4" style= "margin-top: 0rem !important; text-align: center"> Guias Disponiveis </h1>
+    <!-- Team Members Row -->
+    <div class="row">
+      <div class="col-lg-12">
+      </div>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <h3>João Silva
+          <small>Guia</small>
+        </h3>
+        <p>Avaliação média: 5 em 5</p>
+      </div>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <h3>Marco Lopes
+          <small>Guia</small>
+        </h3>
+        <p>Avaliação média: 4,5 em 5</p>
+      </div>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <h3>Margarida Santos
+          <small>Guia</small>
+        </h3>
+        <p>Avaliação média: 4 em 5</p>
+      </div>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <h3>António Matos
+          <small>Guia</small>
+        </h3>
+        <p>Avaliação média: 3,7 em 5</p>
+      </div>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <h3>Paula Marques
+          <small>Guia</small>
+        </h3>
+        <p>Avaliação média: 3,5 em 5</p>
+      </div>
+      <div class="col-lg-4 col-sm-6 text-center mb-4">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <h3>José Rodrigues
+          <small>Guia</small>
+        </h3>
+        <p>Avaliação média: 3,2 em 5</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/simple-sidebar.css" rel="stylesheet">
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <link href="../css/round-about.css" rel="stylesheet">
+  <link href="../css/simple-sidebar.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    function myFunction() {
+      var x = document.getElementById("wrapper");
+      x.hidden = false;
+    }
+  </script>
