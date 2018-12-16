@@ -69,7 +69,7 @@ class WebApp(object):
                     return u['data']
                 else:
                     return []
-        return []
+        return None
 
     def change_data(self, usr, typ, dt):
         db_json = json.load(open(WebApp.dbjson))
@@ -88,6 +88,30 @@ class WebApp(object):
             return False
         users.append(aux)
         json.dump(db_json, open(WebApp.dbjson, 'w'))
+
+    def open_chat(self, guia, guiado):
+        js = json.load(open("data/messages.json"))
+        for each in js:
+            if each["guia"] == guia and each["guiado"] == guiado:
+                return
+        chat = {
+            "guia": guia,
+            "guiado": guiado,
+            guia: self.get_data(guia,"guia")["name"],
+            guiado: self.get_data(guiado,"guiado")["name"],
+            last_message:"Never",
+            "messages": {}
+        }
+        js.append(chat)
+        json.dump(js, open("data/messages.json",'w'))
+
+    def close_chat(self, guia, guiado):
+        js = json.load(open("data/messages.json"))
+        for each in js:
+            if each["guia"] == guia and each["guiado"] == guiado:
+                js.remove(each)
+                return
+        json.dump(js, open("data/messages.json"))
 
 ########################################################################################################################
 #   Controllers
@@ -188,6 +212,8 @@ class WebApp(object):
     def dashboardGuia(self, page=None, password=None, mobile=None, city=None, file=None):
         if not self.get_user()['is_authenticated']:
             raise cherrypy.HTTPRedirect("/")
+        if self.get_data(self.get_user()['username'],'guia') == None:
+            raise cherrypy.HTTPRedirect("/")
         tparams = {
             'username': self.get_user()['username'],
             'dashG1': False,
@@ -225,6 +251,8 @@ class WebApp(object):
     @cherrypy.expose
     def dashboardGuiado(self, page=None, password=None, mobile=None, file=None):
         if not self.get_user()['is_authenticated']:
+            raise cherrypy.HTTPRedirect("/")
+        if self.get_data(self.get_user()['username'],'guiado') == None:
             raise cherrypy.HTTPRedirect("/")
         tparams = {
             'username': self.get_user()['username'],
@@ -272,6 +300,44 @@ class WebApp(object):
         open(path,"bw+").write(file.file.read())
 
     @cherrypy.expose
+    def get_messages(self):
+        if not self.get_user()['is_authenticated']:
+            return
+        user = self.get_user()['username']
+        js = json.load(open("data/messages.json"))
+        messages = []
+        for each in js:
+            if each["guia"] == user or each["guiado"] == user:
+                messages.append(each)
+        return json.dumps(messages)
+
+    @cherrypy.expose
+    def post_message(self, message, user):
+        if not self.get_user()['is_authenticated']:
+            return
+        post = self.get_user()['username']
+        print(post)
+        print(user)
+        js = json.load(open("data/messages.json"))
+        m = {}
+        talk = {}
+        for each in js:
+            if each["guia"] == post and each["guiado"] == user:
+                talk = each
+            if each["guiado"] == post and each["guia"] == user:
+                talk = each
+        if talk == {}:
+            return
+        m["destination"] = user
+        m["content"] = message
+        m["date"] = datetime.today().strftime('%Y/%m/%d')
+        talk["messages"].append(m)
+        talk["last_message"]= m["date"]
+        print(js)
+        print(talk)
+        json.dump(js,open("data/messages.json",'w'))
+
+    @cherrypy.expose
     def teaserGuiado(self):
         return open('pages/teaserGuiado.html').read()
     
@@ -289,6 +355,10 @@ if __name__ == '__main__':
         '/css': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': './css'
+        },
+        '/js': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './js'
         },
         '/assets': {
             'tools.staticdir.on': True,
