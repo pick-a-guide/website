@@ -1,4 +1,42 @@
+   <script>
+    function myFunction1() {
+      var x = document.getElementById("viagem1");
+      x.hidden = false;
+      var y = document.getElementById("viagem2");
+      y.hidden = true;
+      var z = document.getElementById("viagem3");
+      z.hidden = true;
+    }
+
+    function myFunction2() {
+      var x = document.getElementById("viagem1");
+      x.hidden = true;
+      var y = document.getElementById("viagem2");
+      y.hidden = false;
+      var z = document.getElementById("viagem3");
+      z.hidden = true;
+    }
+
+    function myFunction3() {
+      var x = document.getElementById("viagem1");
+      x.hidden = true;
+      var y = document.getElementById("viagem2");
+      y.hidden = true;
+      var z = document.getElementById("viagem3");
+      z.hidden = false;
+    }
+
+    function change(){
+      document.getElementById("xd").innerHTML="<b>Estado da visita:</b> Terminado";
+      var poco = document.getElementById("lol");
+      poco.hidden=true;
+    }
+
+  </script>
+
+
   <!-- Page Content -->
+ 
   <div class="container">
 
     <!-- Jumbotron Header -->
@@ -11,39 +49,14 @@
     	<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
   			<div class="card-body row" >
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade: 1111111111111</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> António Silva</p>
   				</div>
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
-  				</div>
-  			</div>
-		</div>
-
-		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
-  			<div class="card-body row" >
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
-  				</div>
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
-  				</div>
-  			</div>
-		</div>
-
-
-		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
-  			<div class="card-body row" >
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
-  				</div>
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
+  					<p id="xd" style="text-align: left;"><b>Estado da visita:</b> Em curso</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 17/12/2018
+            <button id="lol" style="margin-left: 50px;" onclick="change()" >Terminar visita</button>
+            </p>
   				</div>
   			</div>
 		</div>
@@ -51,12 +64,39 @@
 		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
   			<div class="card-body row" >
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Joana Rita</p>
   				</div>
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 05/12/2018</p>
+  				</div>
+  			</div>
+		</div>
+
+
+		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
+  			<div class="card-body row" >
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> João Costa</p>
+  				</div>
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 03/12/2018</p>
+  				</div>
+  			</div>
+		</div>
+
+		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
+  			<div class="card-body row" >
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Helena Maior</p>
+  				</div>
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 21/11/2018</p>
   				</div>
   			</div>
 		</div>
@@ -68,39 +108,12 @@
     	<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
   			<div class="card-body row" >
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade: 22222222222</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Catarina Silva</p>
   				</div>
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
-  				</div>
-  			</div>
-		</div>
-
-		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
-  			<div class="card-body row" >
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
-  				</div>
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
-  				</div>
-  			</div>
-		</div>
-
-
-		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
-  			<div class="card-body row" >
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
-  				</div>
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 19/11/2018</p>
   				</div>
   			</div>
 		</div>
@@ -108,12 +121,39 @@
 		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
   			<div class="card-body row" >
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Cassandra Oliveira</p>
   				</div>
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 18/11/2018</p>
+  				</div>
+  			</div>
+		</div>
+
+
+		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
+  			<div class="card-body row" >
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Tiago Silva</p>
+  				</div>
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 16/11/2018</p>
+  				</div>
+  			</div>
+		</div>
+
+		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
+  			<div class="card-body row" >
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Maria Paz</p>
+  				</div>
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 14/11/2018</p>
   				</div>
   			</div>
 		</div>
@@ -125,39 +165,12 @@
     	<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
   			<div class="card-body row" >
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade: 33333333</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> José Maria</p>
   				</div>
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
-  				</div>
-  			</div>
-		</div>
-
-		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
-  			<div class="card-body row" >
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
-  				</div>
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
-  				</div>
-  			</div>
-		</div>
-
-
-		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
-  			<div class="card-body row" >
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
-  				</div>
-  				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 10/11/2018</p>
   				</div>
   			</div>
 		</div>
@@ -165,12 +178,39 @@
 		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
   			<div class="card-body row" >
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left; margin-left: 10px;">Cidade:</p>
-  					<p style="text-align: left; margin-left: 10px;">Nome guiado:</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Joana Dias</p>
   				</div>
   				<div class="column" style="flex: 50%">
-  					<p style="text-align: left;">Estado da visita:</p>
-  					<p style="text-align: left;">Data da visita:</p>
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 08/11/2018</p>
+  				</div>
+  			</div>
+		</div>
+
+
+		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
+  			<div class="card-body row" >
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Lurdes Ruela</p>
+  				</div>
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 05/11/2018</p>
+  				</div>
+  			</div>
+		</div>
+
+		<div class="card"  style="max-width: 800px; min-width: 300px; width: 100%; margin-bottom: 30px;">
+  			<div class="card-body row" >
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left; margin-left: 10px;"><b>Cidade:</b> Aveiro</p>
+  					<p style="text-align: left; margin-left: 10px;"><b>Nome guiado:</b> Beatriz Vilanova</p>
+  				</div>
+  				<div class="column" style="flex: 50%">
+  					<p style="text-align: left;"><b>Estado da visita:</b> Terminado</p>
+  					<p style="text-align: left;"><b>Data da visita:</b> 01/11/2018</p>
   				</div>
   			</div>
 		</div>
@@ -198,32 +238,3 @@
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/heroic-features.css" rel="stylesheet">
 
-  <script>
-    function myFunction1() {
-      var x = document.getElementById("viagem1");
-      x.hidden = false;
-      var y = document.getElementById("viagem2");
-      y.hidden = true;
-      var z = document.getElementById("viagem3");
-      z.hidden = true;
-    }
-
-    function myFunction2() {
-      var x = document.getElementById("viagem1");
-      x.hidden = true;
-      var y = document.getElementById("viagem2");
-      y.hidden = false;
-      var z = document.getElementById("viagem3");
-      z.hidden = false;
-    }
-
-    function myFunction3() {
-      var x = document.getElementById("viagem1");
-      x.hidden = true;
-      var y = document.getElementById("viagem2");
-      y.hidden = true;
-      var z = document.getElementById("viagem3");
-      z.hidden = false;
-    }
-
-  </script>
