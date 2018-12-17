@@ -60,19 +60,19 @@
 
         <!-- Page Content -->
 	{% if dashg1 %}
-        <div id="page-content-wrapper">
+        <div id="sugestoes">
             <div class="container-fluid";style="allign-items: center; text-allign: center">
                 <h1>Sugestões Pick-a-Guide</h1>
                 </br>
                 <div class="row">
 
-                  <div class="col-md-4">
+                  <div id= "aveiro" class="col-md-4" onclick="teaserA()">
 
                     <img src="../assets/aveiro.jpg" class="img-fluid rounded mb-3 mb-md-0" style="width:100%">
                   </div>
-                  <div class="col-md-5">
+                  <div class="col-md-5" onclick="teaserA()">
 
-                    <span class="align-middle">
+                    <span id= "aveiro" class="align-middle">
                       <h2 class="text-left align-center"><font color="CornflowerBlue "><u>Aveiro</u></font></h2>
                     </span>
 
@@ -81,13 +81,13 @@
                 </div>
                 <div class="row">
 
-                  <div class="col-md-8">
+                  <div id= "porto" class="col-md-8" onclick="teaserP()">
 
                     <span class="align-middle">
                       <h2 class="text-right align-center"><font color="CornflowerBlue "><u> Porto</u></font> </h2>
                     </span>
                   </div>
-                  <div class="col-md-4">
+                  <div id= "porto" class="col-md-4" onclick="teaserP()">
                     <img src="../assets/porto.jpg" class="img-fluid rounded mb-3 mb-md-0" style="width:100%">
 
                   </div>
@@ -99,6 +99,73 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+
+
+        <!-- Page Content Teaser Aveiro-->
+        <div id = "teaserAveiro" class="container" hidden= true style="margin-top: 0 !important; padding-top: 0 !important">
+
+          <!-- Portfolio Item Heading -->
+          <h1 class="my-4">Aveiro  </h1>
+
+          <!-- Portfolio Item Row -->
+          <div class="row">
+
+            <div class="col-md-8">
+              <img class="img-fluid" src="../assets/aveiroteaser.jpg" alt="">
+            </div>
+
+            <div class="col-md-4">
+              <h3 class="my-3">Descrição da cidade</h3>
+              <p>Aveiro é uma cidade portuguesa, situada na Região Centro, sub-região da Região de Aveiro, capital do Distrito de Aveiro, com cerca de 55 000 habitantes .
+    É sede de um município com 78 450 habitantes (2011) e 197,58 km² de área, subdividido em 10 freguesias. É um município territorialmente descontínuo, visto que compreende algumas ilhas fluviais na Ria de Aveiro e uma porção da península costeira (freguesia de São Jacinto) com quase 25 km de extensão que fecha a ria a ocidente.</p>
+            </div>
+          </div>
+          <!-- /.row -->
+
+          <div class="row">
+
+            <div class="col-md-8">
+
+              <button onclick="retorceder()" class="btn btn-secondary" type="button">Voltar</button>
+           </div>
+        </div>
+        <!-- /.container -->
+      </div>
+
+
+        <!-- Page Content Teaser Aveiro-->
+        <div id = "teaserPorto" class="container" hidden= truestyle="margin-top: 0 !important; padding-top: 0 !important">
+
+          <!-- Portfolio Item Heading -->
+          <h1 class="my-4">Porto  </h1>
+
+          <!-- Portfolio Item Row -->
+          <div class="row">
+
+            <div class="col-md-8">
+              <img class="img-fluid" src="../assets/portoteaser.jpg" alt="">
+            </div>
+
+            <div class="col-md-4">
+              <h3 class="my-3">Descrição da cidade</h3>
+              <p>Porto é a segunda cidade e o quarto município mais populoso de Portugal, situada no noroeste do país e capital da Área Metropolitana do Porto, da região Norte e do Distrito do Porto. A cidade é considerada uma cidade global gama. O município, com 41,42 km² de área, tem uma população de 237 591 habitantes (2011) dentro dos seus limites administrativos, sendo subdividido em quinze freguesias.
+              É ainda uma cidade conhecida mundialmente pelo seu vinho, pelas suas pontes e arquitetura contemporânea e antiga, o seu centro histórico, classificado como Património Mundial pela UNESCO.</p>
+            </div>
+          </div>
+          <!-- /.row -->
+
+          <div class="row">
+
+            <div class="col-md-8">
+
+              <button onclick="retorceder()" class="btn btn-secondary" type="button">Voltar</button>
+           </div>
+        </div>
+        <!-- /.container -->
+
+        </div>
+
+
 	{% endif %}
 	{% if dashg2 %}
 	{% include 'dashg2.html' %}
@@ -118,14 +185,20 @@
 	{% if dashg7 %}
 	{% include 'dashg7.html' %}
 	{% endif %}
-	
+
 
     </div>
     <!-- /#wrapper -->
 
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/portfolio-item.css" rel="stylesheet">
+
     <script>
         function upload()
 	{
@@ -137,6 +210,39 @@
 	    data.append("password",document.getElementById("pass").value);
 	    xhr.send(data);
 	}
+    </script>
+    <script>
+
+        function teaserA(){
+
+          var x = document.getElementById("sugestoes");
+          x.hidden = true;
+          var t = document.getElementById("teaserAveiro");
+          t.hidden = false
+        }
+    </script>
+    <script>
+
+        function teaserP(){
+
+          var x = document.getElementById("sugestoes");
+          x.hidden = true;
+          var t = document.getElementById("teaserPorto");
+          t.hidden = false
+        }
+
+    </script>
+    <script>
+
+        function retorceder(){
+
+          var x = document.getElementById("sugestoes");
+          x.hidden = false;
+          var t = document.getElementById("teaserAveiro");
+          t.hidden = true
+          var t2 = document.getElementById("teaserPorto");
+          t2.hidden = true
+        }
     </script>
 </body>
 
