@@ -40,6 +40,9 @@
                     <a href="/dashboardGuiado?page=dashg3">Procurar Guia</a>
                 </li>
                 <li>
+                    <a href="/dashboardGuiado?page=dashg8">Guia Digital</a>
+                </li>
+                <li>
                     <a href="/dashboardGuiado?page=dashg4">Minhas Viagens</a>
                 </li>
                 <li>
@@ -116,9 +119,13 @@
 	{% include 'dashg6.html' %}
 	{% endif %}
 	{% if dashg7 %}
-	{% include 'dashg7.html' %}
+    {% include 'dashg7.html' %}
+	{% endif %}
+    {% if dashg8 %}
+    {% include 'dashg8.html' %}
 	{% endif %}
 	
+    
 
     </div>
     <!-- /#wrapper -->
