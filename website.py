@@ -99,7 +99,7 @@ class WebApp(object):
             "guiado": guiado,
             guia: self.get_data(guia,"guia")["name"],
             guiado: self.get_data(guiado,"guiado")["name"],
-            last_message:"Never",
+            "last_message":"Never",
             "messages": {}
         }
         js.append(chat)
@@ -341,6 +341,14 @@ class WebApp(object):
     def teaserGuiado(self):
         return open('pages/teaserGuiado.html').read()
     
+    @cherrypy.expose
+    def requisitar_guia(self, guia):
+        if not self.get_user()['is_authenticated']:
+            return
+        if self.get_data(self.get_user()['username'],'guiado') == None:
+            return
+        self.open_chat(guia,self.get_user()['username'])
+
     @cherrypy.expose
     def sair(self):
         self.set_user()
