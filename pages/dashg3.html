@@ -4,10 +4,10 @@
     var xhr = new XMLHttpRequest();
     xhr.open('POST','/requisitar_guia',true);
     var data = new FormData();
-    data.append("guia",mateus_dias@hotmail.com);
+    data.append("guia","mateus_dias@hotmail.com");
     xhr.onreadystatechange = function() {
         if(this.status == 200) {
-            window.location.href="/dashg5";
+            window.location.href="/dashboardGuiado?page=dashg5";
         }
     }
     xhr.send(data);
