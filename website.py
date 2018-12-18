@@ -100,7 +100,7 @@ class WebApp(object):
             guia: self.get_data(guia,"guia")["name"],
             guiado: self.get_data(guiado,"guiado")["name"],
             "last_message":"Never",
-            "messages": {}
+            "messages": []
         }
         js.append(chat)
         json.dump(js, open("data/messages.json",'w'))
